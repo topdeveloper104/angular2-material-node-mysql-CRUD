@@ -1,0 +1,29 @@
+<h3>Person</h3>
+<md-input-container>
+    <!-- <label>Name:</label> -->
+    <input mdInput [(ngModel)]="person.name" (keypress)="change()">
+</md-input-container>
+<md-input-container>
+    <!-- <label>Address:</label> -->
+    <input mdInput [(ngModel)]="person.address" (keypress)="change()">
+</md-input-container>
+<button md-raised-button color="accent" (click)="deletePerson()">Delete Person</button> 
+<button md-raised-button color="accent" *ngIf="changeFlag" (click)="changePerson()">Update Person</button> 
+
+<section class="main-person" >
+    <header>
+        <md-input-container>
+            <input mdInput placeholder="Name" [(ngModel)]="newbank.name">
+        </md-input-container>
+        <md-input-container>
+            <input mdInput placeholder="Country" [(ngModel)]="newbank.country">
+        </md-input-container>
+        <button md-raised-button color="primary" (click)="addBank()">Add Bank</button>
+    </header>
+
+    <section class="main" *ngIf="banks.length > 0">
+        <div *ngFor="let bank of banks" class="bank">
+            <app-bank [person]="person" [bank]="bank" (updateBank)="updateBank()"></app-bank>
+        </div>
+    </section>
+</section>

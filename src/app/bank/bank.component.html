@@ -1,0 +1,34 @@
+<h5>Bank</h5>
+<md-input-container>
+    <!-- <label>Name:</label> -->
+    <input mdInput [(ngModel)]="bank.name" (keypress)="change()">
+</md-input-container>
+<md-input-container>
+    <!-- <label>Address:</label> -->
+    <input mdInput [(ngModel)]="bank.country" (keypress)="change()">
+</md-input-container>
+<button md-raised-button color="accent" (click)="deleteBank()">Delete Bank</button> 
+<button md-raised-button color="accent" *ngIf="changeFlag" (click)="changeBank()">Update Bank</button> 
+
+<section class="main-bank" >
+    <header>
+        <md-input-container>
+            <input mdInput placeholder="Type" [(ngModel)]="newaccount.type">
+        </md-input-container>
+        <md-input-container>
+            <input mdInput placeholder="Name" [(ngModel)]="newaccount.name">
+        </md-input-container>
+        <md-input-container>
+          <input mdInput [mdDatepicker]="picker" placeholder="Open Date" [(ngModel)]="newaccount.opendate">
+          <button mdSuffix [mdDatepickerToggle]="picker"></button>
+        </md-input-container>
+        <md-datepicker #picker></md-datepicker>
+        <button md-raised-button color="primary" (click)="addAccount()">Add Account</button>
+    </header>
+
+     <section class="main" *ngIf="accounts.length > 0">
+        <div *ngFor="let account of accounts" class="account">
+            <app-account [person]="person" [bank]="bank" [account]="account" (updateAccount)="updateAccount()"></app-account>
+        </div>
+    </section> 
+</section>

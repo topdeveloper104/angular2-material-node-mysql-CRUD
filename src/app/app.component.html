@@ -1,0 +1,18 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<section class="crudapp">
+    <header class="header">
+        <h1>CRUD APP</h1>
+        <md-input-container>
+            <input mdInput placeholder="Person Name" [(ngModel)]="newperson.name">
+        </md-input-container>
+        <md-input-container>
+            <input mdInput placeholder="Person Address" [(ngModel)]="newperson.address">
+        </md-input-container>
+        <button md-raised-button color="primary" (click)="addPerson()">Add Person</button>
+    </header>
+    <section class="main" *ngIf="persons.length > 0">
+        <div *ngFor="let person of persons" class="person">
+            <app-user [person]="person" (updatePerson)="updatePerson()"></app-user>
+        </div>
+    </section>
+</section>

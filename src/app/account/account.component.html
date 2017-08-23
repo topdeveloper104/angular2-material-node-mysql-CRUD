@@ -1,0 +1,16 @@
+
+<md-input-container>
+    <!-- <label>Name:</label> -->
+    <input mdInput [(ngModel)]="account.type" (keypress)="change()">
+</md-input-container>
+<md-input-container>
+    <!-- <label>Address:</label> -->
+    <input mdInput [(ngModel)]="account.name" (keypress)="change()">
+</md-input-container>
+<md-input-container>
+  <input mdInput [mdDatepicker]="picker" placeholder="Open Date" [(ngModel)]="account.opendate">
+  <button mdSuffix [mdDatepickerToggle]="picker"></button>
+</md-input-container>
+<md-datepicker #picker (selectedChanged)="change()"></md-datepicker>
+ <button md-raised-button color="accent" (click)="deleteAccount()">Delete Account</button> 
+ <button md-raised-button color="accent" *ngIf="changeFlag" (click)="changeAccount()">Update Account</button> 

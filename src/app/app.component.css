@@ -1,0 +1,14 @@
+.crudapp{
+    align-items: center;
+    padding-left: 50px;
+}
+
+.crudapp .header h1{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.person {
+    border-bottom: 1px dotted blue;
+}
